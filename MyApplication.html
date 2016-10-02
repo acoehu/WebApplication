@@ -1,16 +1,40 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Fakebook</title>		
+		<style>
+			#cool {color:red;}
+		</style>
+		<title>Testing JavaScript</title>
+		<script>
+
+			function ChangeColor()
+			{
+				document.getElementById('cool').style.fontSize="35px";
+				document.getElementById('cool').style.color="Blue";
+			}
+			function math() {
+				var x = 7;
+				var y = 6 **2;
+				var z = x + y;
+				document.getElementById("asd").innerHTML = z;
+			}
+			function myFunction(a, b) {
+				return a*b;
+			}
+		</script>
 	</head>
-	<body style="background-color: CornflowerBlue;">
-		<h1 style="color: white; background-color: CornflowerBlue;"> Facebook Shortcut</h1>
-		<p style="color: white;background-color: CornflowerBlue"> Select the shortcut you want to use:</p>
-	</body>
-	<body style= "background-color: white;">
-		<a href="https://www.facebook.com">Newfeed</a><br/>
-		<a href="https://www.google.com";>Search for something</a><br/>
-		<a href="https://www.facebook.com/quangvu.conan";>Your Profile</a><br/>
-		<a href="https://www.facebook.com/heolonton.181094";>Your Wife Profile</a><br/>
-		<a href="https://www.facebook.com/settings";> Settings</a><br/>
+	<body>
+		<p title="wtf is this "; style = "	background-color:red;color: blue; font-size:150%; text-align: center;"> what the fuck am i writing </p>
+		<p id = "cool" >Hello World.</p>
+		<button type="button" onclick="document.getElementById('cool').innerHTML = 'hello'">Click here!</button>
+		<button type="button" onclick="ChangeColor()"> Click me too</button>
+
+
+		<p id ="asd"></p>
+		<p id ="wtf"> </p>
+		<script>
+		 	document.getElementById("wtf").innerHTML = "a";
+		</script>
+		<button type="button" onclick="math()"> Click here to do math </button>
 	</body>
 </html>
