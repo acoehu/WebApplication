@@ -2,12 +2,48 @@
 <html>
 	<head>
 		<title> login site</title>	
+
+
+
 		<script> 
-			function check() {
-			
-				var ID = document.getElementById("anlon").value;
-				var password = document.getElementById("password").value;
-				if ((ID == "Conan") && (password == "123456")) {
+			var IDList = [];
+			var PassList = [];
+			function addNew() {
+				var nick = document.getElementById("ID").value;
+				var pass = document.getElementById("password").value;
+				var rePass = document.getElementById("reTypePassword").value;
+
+				if (checkID(nick)) {
+					document.getElementById("warning").innerHTML = "invalid ID, please try other";
+				}
+				else if (pass == rePass) {
+					IDList.push(nick);
+					PassList.push(pass);
+					document.getElementById("warning").innerHTML = "signup sucessful!";
+				}	
+				else {
+					document.getElementById("warning").innerHTML = "Passwords are not matched, please try again!";
+				}
+			}
+			function checkID(name) {
+				
+				var i;
+				for(i = 0; i < IDList.length; i++) {
+					if (IDList[i] == name) return true;
+				}
+				return false;
+			}
+			function checkPass(pass) {
+				var i;
+				for(i = 0; i < PassList.length; i++) {
+					if (PassList[i] == pass) return true;
+				}
+				return false;
+			}
+			function login() {
+				var loginNick = document.getElementById("loginID").value;
+				var loginPass = document.getElementById("loginPassword").value;
+				if ((checkPass(loginPass)) && (checkID(loginNick))){
 					document.getElementById("output").innerHTML = "Login sucessful";
 				}
 				else {
@@ -17,12 +53,17 @@
 		</script>
 	</head>
 	<body>
-		<p style = "text-align: center; color: red; font-size: 300%;"> Welcome! </p>
-		<p style = "color:black;"> Enter your ID:</p>
-		<input id="anlon" > <br>
-		<p style = "color:black;"> Enter your password: </p>
-		<input id="password"> <br>
-		<button type="button" onclick="check()">Login</button>
-		<p id="output"> </p>
+		<p style="text-align: center; color: red; font-size: 300%;"> Welcome! </p>
+		<h1 style="color:hotpink;font-size:200%;text-decoration:underline;"> Signup Here:</h1>
+		Enter your ID: <input id="ID" > <br>
+		Enter your password: <input id="password" type="password"> <br>
+		Re-enter your password: <input id="reTypePassword" type="password"> <br>
+		<button type="button" onclick="addNew()">Signup</button>
+		<p id="warning" style="color:red;text-decoration:underline;"> </p>
+		<h1 style ="color:hotpink;font-size:200%;text-decoration:underline;"> Login Here:</h1>
+		Enter your ID: <input id="loginIDs" > <br>
+		Enter your password: <input id="loginPassword" type="password"> <br>
+		<button type="button" onclick="login()" >Login</button>
+		<p id="output" style="color:red;text-decoration:underline;"> </p>
 	</body>
 </html>
