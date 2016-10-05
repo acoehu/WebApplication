@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Account List </title>
+		<style> 
+			table {
+   				font-family: arial, sans-serif;
+    			border-collapse: collapse;
+    			width: 100%;
+    			text-align:center;
+			}
+
+			td, th {
+    			border: 1px solid #dddddd;
+    			text-align: center;
+    			padding: 1px;
+			}
+		</style>
+		<script> 
+			function addAccount() {
+				var name = document.getElementById("name").value;
+				var age = document.getElementById("age").value;
+				var email = document.getElementById("email").value;
+				var row = document.getElementById("tableList").insertRow(1);
+				row.insertCell(0).innerHTML = name;
+				row.insertCell(1).innerHTML = age;
+				row.insertCell(2).innerHTML = email;
+
+				document.getElementById("warning").innerHTML = "Signup sucessful!"
+			}
+		</script>
+	</head>
+	<body>
+		<h1 style ="color:red; text-align: center; font-size:300%;"> Welcome!</h1>
+		<p style ="color:hotpink; text-decoration: underline; font-size:150%;">Signup for volunteer here:</p>
+		Enter Your Name: <input id= "name" required> <br>
+		Enter Your Age: <input id="age"> <br>
+		Enter Your Email: <input id="email"> <br>
+		<button type="button" onclick="addAccount()"> Signup </button>
+		<p style="color:red; text-decoration: underline;" id="warning"> </p>
+		<table id="tableList">
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Email</th>
+			</tr>
+		</table>
+	</body>
+</html>
